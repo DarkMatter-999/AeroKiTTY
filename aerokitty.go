@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"aerokitty/aerokitty_core"
+)
+
 
 func main() {
-	fmt.Println("Hello Terminal")
+	aerokitty_core.CreateTermWindow("FilePath");
 }
