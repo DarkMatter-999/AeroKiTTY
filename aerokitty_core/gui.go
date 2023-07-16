@@ -1,6 +1,7 @@
 package aerokitty_core
 
 import (
+	"os"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -22,7 +23,11 @@ func CreateTermWindow(filePath string) {
 		),
 	)
 
-	spawnShell()
+	_, err := spawnShell()
+	if err != nil {
+		os.Exit(0)
+	}
+
 
 
 	window.ShowAndRun()
