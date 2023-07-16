@@ -24,15 +24,12 @@ func spawnShell() (*Shell, error){
 		process: c,
 	}
 	return &shell, nil
+}
 
-	/*
-	c.Write([]byte("dir\r"))
-	time.Sleep(1 * time.Second)
-	b := make([]byte, 1024)
-	_, err = c.Read(b)
-	if err != nil {
-		log.Printf("Failed to read pty %s", err)
-	}
-	log.Println(b)
-	*/
+func (s *Shell) Write(b []byte) (int, error) {
+	return s.process.Write(b)
+}
+
+func (s *Shell) Read(b []byte) (int, error) {
+	return s.process.Read(b)
 }
